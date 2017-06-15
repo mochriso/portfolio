@@ -64,7 +64,7 @@ export default {
       teaserSwiperOption: {
         notNextTick: true,
         grabCursor: true,
-        keyboardControl: false,
+        keyboardControl: true,
         // effect: 'fade',
       },
     };
