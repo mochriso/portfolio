@@ -46,5 +46,9 @@ module.exports = {
     'quotes': 'off',
     'prefer-template': 'off',
     'no-unused-vars': 'off',
+    'eqeqeq': 'off',
+    'brace-style': 'off',
+    'import/prefer-default-export': 'off',
+    'prefer-arrow-callback': 'off',
   }
 }

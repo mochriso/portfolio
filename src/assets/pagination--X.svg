@@ -1,0 +1,11 @@
+<svg width="17" height="17" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>pagination--X</title>
+<g id="Canvas" transform="translate(-9139 -7485)">
+<g id="pagination--X">
+<use xlink:href="#path0_fill" transform="translate(9139.92 7485.21)" fill="#DDDDDD"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 16 1.39111L 14.6084 0L 8 6.6084L 1.3916 0L 0 1.39111L 6.6084 8L 0 14.6084L 1.3916 16L 8 9.3916L 14.6084 16L 16 14.6084L 9.3916 8L 16 1.39111Z"/>
+</defs>
+</svg>
