@@ -1,9 +1,9 @@
 <template>
-  <nav id="main-nav-first">
+  <nav :id="('main-nav-' + paginationPosition)">
     <ul>
       <li v-for="(item,index) in content" key="item.id">
         <h5 v-show="same(paginationPosition,'before')">{{item.title}}</h5>
-        <pagination v-if="(item.type === 'showtitle')" v-show="same(index,mainActiveIndex)" :categoryTitle="item.title" :slides="item.slides" :mainIndex="index" :paginationPosition="paginationPosition">
+        <pagination key="item.id" v-if="(item.type === 'showtitle')" v-show="same(index,mainActiveIndex)" :categoryTitle="item.title" :slides="item.slides" :mainIndex="index" :paginationPosition="paginationPosition">
         </pagination>
       </li>
     </ul>
@@ -12,6 +12,9 @@
 </template>
 
 <script>
+//         <!-- <router-link to="{ name: 'mainnav', params: {navitem: item.title} }"> -->
+//         <!-- </router-link> -->
+
 import pagination from './Pagination';
 
 import same from './mixins';
@@ -39,7 +42,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
-#main-nav-first {
+#main-nav-before,  #main-nav-after{
   ul {
     margin: 0;
     display: flex;

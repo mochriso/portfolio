@@ -50,5 +50,6 @@ module.exports = {
     'brace-style': 'off',
     'import/prefer-default-export': 'off',
     'prefer-arrow-callback': 'off',
+    'no-useless-concat': 'off',
   }
 }

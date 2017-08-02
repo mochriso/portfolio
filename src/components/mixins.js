@@ -7,5 +7,11 @@ export default {
       }
         return false;
     },
+    iterate: function iterate(arr, callback) {
+      let i;
+      for (i = 0; i < arr.length; i += 1) {
+          return callback;
+        }
+      },
   },
 };

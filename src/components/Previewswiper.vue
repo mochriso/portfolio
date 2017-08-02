@@ -8,25 +8,27 @@
   </template>
     <swiper :options="previewSwiperOption" class="preview" :class="name" ref="previewSwiper">
       <swiper-slide class="preview" v-for="item in slides" key="item.id">
-        <projectpreview :title="item.title"></projectpreview>
+        <projectpreview :title="item.title" ></projectpreview>
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
+
+// @key-up.enter=""
 import projectpreview from './Projectpreview';
 
 import same from './mixins';
 
 import { Eventbus } from './eventbus';
 
-import Caseteaser from './Caseteaser';
+import caseteaser from './Caseteaser';
 
 export default {
   mixins: [same],
   name: 'previewswiper',
-  props: ['type', 'slides', 'name', 'title', 'index'],
+  props: ['type', 'slides', 'name', 'title', 'index', 'mainActiveIndex'],
   data() {
     return {
       activeIndex: 0,
@@ -64,8 +66,8 @@ export default {
   },
   methods: {
     emitPreviewActiveIndex(val) {
-      Eventbus.$emit('preview-active-index', val);
-      console.log('emitting?', this.activeIndex, val);
+      Eventbus.$emit('preview-active-index', val, this.index);
+      // console.log('emitting?', this.activeIndex, val, this.index);
     },
 
     iterate: function iterate(arr) {
@@ -76,21 +78,22 @@ export default {
       },
   },
   components: {
-    projectpreview, Caseteaser,
+    projectpreview, caseteaser,
+  },
+  created() {
+     const comp = this;
+    Eventbus.$on('go-to-slide', (ind) => {
+      comp.swiper.slideTo(ind, 300);
+      console.log(ind);
+    });
   },
   mounted() {
-  //  console.log("data activeIndex before", this.activeIndex);
-  //  console.log("swiper activeIndex before", this.swiper.activeIndex);
-    // this.swiper.on('slideChangeEnd', (swiper) => {
-    //   this.activeIndex = this.swiper.activeIndex;
-    //   console.log("data activeIndex after", this.activeIndex);
-    //   console.log("swiper activeIndex after", this.swiper.activeIndex);
-    // });
     this.swiper.on('slideChangeStart', (swiper) => {
       this.activeIndex = this.swiper.activeIndex;
-    //  console.log("data activeIndex after", this.activeIndex);
-    //  console.log("swiper activeIndex after", this.swiper.activeIndex);
     });
+  },
+  beforeDestroy() {
+  //  Eventbus.$off('go-to-slide', (ind));
   },
 };
 </script>

@@ -1,10 +1,15 @@
 <template>
   <div class="p-container">
-    <div class="p-child"><p>Bilde av {{title}}</p></div>
+      <div class="p-child">
+        <p>Bilde av {{title}}</p>
+      </div>
   </div>
 </template>
 
 <script>
+//     <router-link :to="{ name: 'Project', params: {projectItem: title} }">
+//     </router-link>
+
 
 export default {
   name: 'projectpreview',
